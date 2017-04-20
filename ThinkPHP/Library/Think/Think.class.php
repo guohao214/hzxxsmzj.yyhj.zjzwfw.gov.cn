@@ -36,6 +36,7 @@ class Think {
 
       // 初始化文件存储方式
       Storage::connect(STORAGE_TYPE);
+      version_compare(PHP_VERSION, '5.4.21', '<') && Log::INFO;
 
       $runtimefile  = RUNTIME_PATH.APP_MODE.'~runtime.php';
       if(!APP_DEBUG && Storage::has($runtimefile)){
