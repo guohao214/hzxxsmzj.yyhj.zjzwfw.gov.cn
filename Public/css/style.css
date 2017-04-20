@@ -1,0 +1,70 @@
+body{font-size:.6rem;Font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, SimSun, “宋体”, Heiti, “黑体”, sans-serif;margin:0;padding: 0px 0px 40px;}
+a{text-decoration:none;}
+li{list-style:none;}.my span a{color:#fff;}
+#header{
+    background:#1492ff;color:#fff;clear:both;overflow:hidden;line-height:2.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+}
+/*#header div{float:left;}*/
+#header +div {
+    margin-top: 2.5rem;
+}
+.back{
+    width: 20%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;}
+.title{text-align:center;font-size:.8rem;}
+.my{width:20%;cursor:pointer}
+.my span{display:inline-block;margin-left:40%;}
+.back span{
+    color: #fff;
+    display: inline-block;
+    margin-left: 25%;
+    height: 15px;
+    position: relative;
+}
+.back span:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(-135deg);
+    position: absolute /* right: -2px; */;
+    /*top: 3%;*/
+}
+.Menubox6{width:33%;float:left;text-align:center;background:#fff;line-height:380%;font-size:.5rem;margin-bottom:0.2%}.six2,.six5{margin:0 0.5%;border-right: 1px solid #000000;}
+.swiper-container,#immersive_slider{clear:both;overflow:hidden;background:#f3f3f3;}
+.six{background:#00aaff;}
+.six_color{color:#fff;}
+.a_color{color: #666;}
+.fwsx_nr_nr_nr{background:#fff;margin-bottom:0.3%;line-height:350%;padding-left:.5rem;}
+.zt18_l{padding:0.8rem 0.5rem;margin:0;color:#999999}.sign{float:right;margin-right:1rem;color:gray;font-weight:bold;}
+.zt18_h{color:#333;text-decoration:none; display: block;width: 100%}
+.sign {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    margin-top: 5%
+}
+.sign:after {
+    content: '';
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -2px;
+}

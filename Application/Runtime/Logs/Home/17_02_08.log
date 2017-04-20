@@ -1,0 +1,567 @@
+[ 2017-02-08T16:11:14+08:00 ] ::1 /hzxxsmzj.yyhj.zjzwfw.gov.cn/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000387s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000856s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000939s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0206s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0176s ]
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 56 行.
+NOTIC: [8] Use of undefined constant AUTH_KEY - assumed 'AUTH_KEY' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Common/Common/function.php 第 36 行.
+NOTIC: [8] Undefined index: uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 60 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001209s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001324s ]
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016924s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017010s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000616s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001164s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001235s ]
+
+[ 2017-02-08T16:11:29+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000784s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000908s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000983s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0145s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0138s ]
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 56 行.
+NOTIC: [8] Use of undefined constant AUTH_KEY - assumed 'AUTH_KEY' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Common/Common/function.php 第 36 行.
+NOTIC: [8] Undefined index: uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 60 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011068s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011148s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000469s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001110s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001183s ]
+
+[ 2017-02-08T16:12:10+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000717s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000833s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000905s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0189s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0182s ]
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 56 行.
+NOTIC: [8] Use of undefined constant AUTH_KEY - assumed 'AUTH_KEY' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Common/Common/function.php 第 36 行.
+NOTIC: [8] Undefined index: uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 60 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010732s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010811s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000482s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001119s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001191s ]
+
+[ 2017-02-08T16:12:14+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getList/typeId/122.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0144s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0159s ]
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 102 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008468s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008527s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000140s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000171s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000403s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000442s ]
+
+[ 2017-02-08T16:12:17+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/2451.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0166s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0159s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000067s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010291s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010365s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000205s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000496s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000553s ]
+
+[ 2017-02-08T16:13:09+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/2449.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000594s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000699s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0141s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0149s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000129s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010330s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010376s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000447s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000925s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000996s ]
+
+[ 2017-02-08T16:13:15+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/2449.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000386s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0151s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0148s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000132s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008887s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008937s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000423s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000469s ]
+
+[ 2017-02-08T16:13:22+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000194s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000267s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0168s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0148s ]
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 56 行.
+NOTIC: [8] Use of undefined constant AUTH_KEY - assumed 'AUTH_KEY' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Common/Common/function.php 第 36 行.
+NOTIC: [8] Undefined index: uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 58 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 60 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000120s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000303s ]
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+NOTIC: [8] Undefined index: parentId /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/2a94b8bda04ff446dcedd42276fc99ee.php 第 81 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009548s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009635s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000182s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000428s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000459s ]
+
+[ 2017-02-08T16:13:25+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getList/typeId/63.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000247s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000278s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0148s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0147s ]
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 102 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000111s ]
+NOTIC: [8] Undefined index: canPreCall /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/b2746485387fcda3687e95f4dd71a08b.php 第 140 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007054s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007111s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000136s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000166s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000424s ]
+
+[ 2017-02-08T16:13:27+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/186.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0196s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0174s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000126s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007430s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007474s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000166s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000437s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000492s ]
+
+[ 2017-02-08T16:13:44+08:00 ] 192.168.0.186 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/186.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0147s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0220s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000111s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007936s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007981s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000158s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000356s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000393s ]
+
+[ 2017-02-08T16:14:23+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getList/typeId/127.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000402s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0247s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0214s ]
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 102 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000107s ]
+NOTIC: [8] Undefined index: canPreCall /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/b2746485387fcda3687e95f4dd71a08b.php 第 140 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005890s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005934s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000138s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000169s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000495s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000530s ]
+
+[ 2017-02-08T16:14:25+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/234.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0148s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0160s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000065s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000112s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+NOTIC: [8] Undefined index: feesStandard /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 321 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007219s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007261s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000123s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000150s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000359s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000405s ]
+
+[ 2017-02-08T16:14:32+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/234.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000278s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0151s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0158s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+NOTIC: [8] Undefined index: feesStandard /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 321 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007051s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007089s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000119s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000145s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000365s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000412s ]
+
+[ 2017-02-08T16:14:52+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/234.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000650s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000928s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0229s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0132s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000155s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+NOTIC: [8] Undefined index: feesStandard /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 321 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011820s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011895s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000683s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000728s ]
+
+[ 2017-02-08T16:15:39+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/234.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000802s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000711s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0249s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0173s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000141s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+NOTIC: [8] Undefined index: feesStandard /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 321 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012317s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012364s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000475s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000514s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000855s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2017-02-08T16:15:47+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/234.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0146s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0125s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+NOTIC: [8] Undefined index: feesStandard /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 321 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009257s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009355s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000125s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000440s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000520s ]
+
+[ 2017-02-08T16:16:44+08:00 ] 192.168.0.175 /hzxxsmzj.yyhj.zjzwfw.gov.cn/index.php/index/getInfo/projectId/234.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000572s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `his_set` [ RunTime:0.0166s ]
+SQL: SELECT `status` FROM `his_set` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0138s ]
+NOTIC: [8] Undefined index: citizen_uid /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 113 行.
+NOTIC: [8] Use of undefined constant CURL_SSLVERSION_SSL - assumed 'CURL_SSLVERSION_SSL' /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Api/Curl.class.php 第 90 行.
+NOTIC: [8] Undefined index: authcode /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Home/Controller/IndexController.class.php 第 121 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+NOTIC: [8] Undefined index: needMaterial /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 308 行.
+NOTIC: [8] Undefined index: feesStandard /Users/denny/Php/hzxxsmzj.yyhj.zjzwfw.gov.cn/Application/Runtime/Cache/Home/ed77d692197b63845e4792d2210a7e14.php 第 321 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011239s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011285s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000451s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000494s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000665s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000710s ]
+
