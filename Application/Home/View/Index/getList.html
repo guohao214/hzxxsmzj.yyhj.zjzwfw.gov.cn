@@ -130,7 +130,7 @@
 <!-- 导航条-->
 <div id="header">
     <div class="back"><span onclick="history.go(-1);"></span></div>
-    <div class="title"><?php echo $typeName; ?></div>
+    <div class="title"><?php echo  urldecode($typeName); ?></div>
     <div class="my"><span></span></div>
 </div>
 <div style="height:.5rem;clear:both;overflow:hidden;"></div>
