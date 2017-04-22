@@ -4,13 +4,13 @@
     <?php if(count($item['children']) > 0) { ?>
     <?php foreach($item['children'] as $keyC => $itemC){ ?>
     <div class="fwsx_nr_nr_nr" style="cursor:hand">
-        <a class="zt18_h" href="<{:U('index/getList',['typeId'=>$itemC['id'], 'typeName' => $itemC['name']])}>">
+        <a class="zt18_h" href="<{:U('index/getList',array('typeId'=>$itemC['id'], 'typeName' => $itemC['name']))}>">
             <?php echo $itemC['name'] ?>
         <span class="sign"></span></a></div>
     <?php } ?>
     <?php }else{ ?>
     <div class="fwsx_nr_nr_nr" style="cursor:hand">
-        <a class="zt18_h" href="<{:U('index/getList',['typeId'=>$item['id'], 'typeName' => $item['name']])}>"><?php echo $item['name'] ?>
+        <a class="zt18_h" href="<{:U('index/getList',array('typeId'=>$item['id'], 'typeName' => $item['name']))}>"><?php echo $item['name'] ?>
         <span class="sign"></span></a></div>
     <?php }?>
 </div>

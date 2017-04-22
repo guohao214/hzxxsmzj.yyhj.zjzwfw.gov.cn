@@ -20,9 +20,9 @@ return array(
 
     'TMPL_R_DELIM' => '}>', //定义右定界符
 
-    'MODULE_ALLOW_LIST' => [
+    'MODULE_ALLOW_LIST' => array(
         'Home'
-    ],
+    ),
 
     'DEFAULT_MODULE' => 'Home',// 配置你原来的默认分组
 

@@ -30,8 +30,8 @@ class TypeList
 
     public static function formatTypeList($originTypeList)
     {
-        $topTypeList = [];
-        $typeList = [];
+        $topTypeList = array();
+        $typeList = array();
         // 处理数据 parentId=-1为顶级菜单
         foreach ($originTypeList as $key => $item) {
             $id = $item['id'];
@@ -44,7 +44,7 @@ class TypeList
 
         // 处理二级菜单
         // 关系隐射
-        $menuRelation = [];
+        $menuRelation = array();
         foreach ($originTypeList as $key => $item) {
             $id = $item['id'];
             $parentId = $item['parentId'];
@@ -64,7 +64,7 @@ class TypeList
             }
         }
 
-        $response = [];
+        $response = array();
         $response['topTypeList'] = $topTypeList;
         $response['typeList'] = $typeList;
 

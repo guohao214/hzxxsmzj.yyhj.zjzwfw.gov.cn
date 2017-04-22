@@ -224,7 +224,7 @@
 <div class="menu">
     <ul>
         <li class="first">预约列表</li>
-        <li class="second"><a href="<{:U('index/followView',['userId'=>$userId])}>">关注事项</a></li>
+        <li class="second"><a href="<{:U('index/followView',array('userId'=>$userId))}>">关注事项</a></li>
     </ul>
 </div>
 <!--导航条-->
@@ -242,7 +242,7 @@ if(empty($list)){?>
     <div class="ab">
         <ul>
             <li>
-                <a href="<{:U('index/cancel',['projectId'=>$v['order_id'],'userId'=>$userId])}>" <?php if($v['is_cancel']==1){?>
+                <a href="<{:U('index/cancel',array('projectId'=>$v['order_id'],'userId'=>$userId))}>" <?php if($v['is_cancel']==1){?>
                 style="color:gray;"<?php } ?>>取消预约</a></li>
             <li class="midline"><a onclick="advise('<?php echo $v['order_id']; ?>');">意见建议</a></li>
             <li><a onclick="pingjia('<?php echo $v['order_id']; ?>')">评价</a></li>

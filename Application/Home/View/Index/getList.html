@@ -137,7 +137,7 @@
 <!--导航条-->
 <?php if($projectList['code'] == 0) { ?>
 <?php foreach($projectList['items'] as $k=>$v){ ?>
-<div class="qfgj_nr" style="cursor:hand"><a href="<{:U('index/getInfo',['projectId'=>$v['id']])}>" style="display: block;">
+<div class="qfgj_nr" style="cursor:hand"><a href="<{:U('index/getInfo',array('projectId'=>$v['id']))}>" style="display: block;">
     <div class="qfgj_nr_dh"><?php echo $v['title']; ?></div>
     <?php if($v['canPreCall']!=1){ ?>
     <div class="qfgj_nr_nr_nr"><span class="zt14_hong"></span><span class="yy_no">不可预约</span></div>

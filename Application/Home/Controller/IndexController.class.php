@@ -21,7 +21,7 @@ class IndexController extends Controller
         session_start();
         parent::__construct();
         $set = D("Set");
-        $status = $set->where(['id' => 1])->getField("status");
+        $status = $set->where(array('id' => 1))->getField("status");
         if ($status != 1) {
             echo "<h1>微站功能维护中!</h1>";
             die;
@@ -140,7 +140,7 @@ class IndexController extends Controller
 
         Curl::curlGet($this->xsUrl . 'index/follow?userId=' . $userId . '&projectId=' . $projectId);
 
-        redirect(U('Index/followView', ['userId' => $userId]));
+        redirect(U('Index/followView', array('userId' => $userId)));
     }
 
 

@@ -79,7 +79,7 @@
     </div>
     <?php endforeach; ?>
 </div>
-<div class="swiper-container" style="display: none"></div>
+<div class="swiper-container"></div>
 <div id="footer"
      style="color: #666; text-align: center; margin: 10px; font-size: 12px; width: 100%;position:fixed;bottom: 0px;">
     本服务由浙江政务服务网提供
@@ -96,9 +96,9 @@
                 $id = that.attr('data-id');
             that.addClass('six');
 
-            $container.html('').hide();
+            $container.html('');
             $.get(host + '/getTypeList', {id: $id}, function (data) {
-                $container.html(data).fadeIn();
+                $container.html(data);
                 window.location.href = '#' + $id
             })
 
