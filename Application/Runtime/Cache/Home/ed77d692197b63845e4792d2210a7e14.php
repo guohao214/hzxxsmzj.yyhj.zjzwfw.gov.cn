@@ -329,7 +329,7 @@
                              onclick="onCallPhone('<?php echo $projectItems[0]['telphone']; ?>')"><?php echo $projectItems[0]['telphone']; ?></a>
 </div>
 
-<div class="sxxq_bottom_nr_zj" style="cursor:hand"><?php if($projectItems[0]['canPreCall']==1){ ?><a
+<div class="sxxq_bottom_nr_zj" style="cursor:hand"><?php if($projectItems[0]['yuzt']==1){ ?><a
         class="sxxq_bottom_nr_zj_a"
         onClick="toPreCall()">立即预约</a><?php }else{?>
     <a class="sxxq_bottom_nr_zj_b">不可预约</a><?php } ?></div>

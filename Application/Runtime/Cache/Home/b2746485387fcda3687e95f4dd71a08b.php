@@ -130,7 +130,7 @@
 <!-- 导航条-->
 <div id="header">
     <div class="back"><span onclick="history.go(-1);"></span></div>
-    <div class="title"><?php echo $typeName; ?></div>
+    <div class="title"><?php echo urldecode($typeName); ?></div>
     <div class="my"><span></span></div>
 </div>
 <div style="height:.5rem;clear:both;overflow:hidden;"></div>
@@ -139,7 +139,7 @@
 <?php foreach($projectList['items'] as $k=>$v){ ?>
 <div class="qfgj_nr" style="cursor:hand"><a href="<?php echo U('index/getInfo',array('projectId'=>$v['id']));?>" style="display: block;">
     <div class="qfgj_nr_dh"><?php echo $v['title']; ?></div>
-    <?php if($v['canPreCall']!=1){ ?>
+    <?php if($v['yuzt']!=1){ ?>
     <div class="qfgj_nr_nr_nr"><span class="zt14_hong"></span><span class="yy_no">不可预约</span></div>
 </a>
     <?php }else{ ?>
