@@ -8,48 +8,10 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>萧山区市民服务中心</title>
+    <link href="/Public/css/style.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="/Public/js/jquery.min.js"></script>
     <script type="text/javascript" src="/Public/js/main.js"></script>
-    <script type="text/javascript">
 
-        /*默认字号调整*/
-        function toPreCall(id) {
-            document.getElementById('transeId').value = id;
-            document.getElementById('infoFrom').setAttribute('action', '<?php echo U("index/getInfo");?>?projectId=' + id);
-            document.getElementById('infoFrom').submit();
-        }
-
-        (function (doc, win) {
-            var docEl = doc.documentElement,
-                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                recalc = function () {
-                    var clientWidth = docEl.clientWidth;
-                    if (clientWidth > 1080) {
-                        clientWidth = 1080;
-                        docEl.style.fontSize = 67.5 + 'px';
-                    }
-                    if (!clientWidth) return;
-                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                };
-            recalc();
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
-        })(document, window);
-
-        function advise(id) {
-            document.getElementById('a').value = id;
-            document.getElementById('advise').setAttribute('action', '<?php echo U("index/advise");?>');
-            $("#advisep").show();
-            $("#pingjiap").hide();
-        }
-        function pingjia(id) {
-            document.getElementById('p').value = id;
-            document.getElementById('pingjia').setAttribute('action', '<?php echo U("index/pingjia");?>');
-            $("#pingjiap").show();
-            $("#advisep").hide();
-        }
-    </script>
     <style type="text/css">
         body {
             font-size: .6rem;
@@ -158,7 +120,7 @@
             background: #eee
         }
 
-        #tt, .tt {
+        #tt, .tt, #tt-1 {
             margin: 0 .5rem .5rem
         }
 
@@ -204,6 +166,16 @@
             color: #333;
             text-decoration: none;
         }
+
+        .mask {
+            position: fixed;
+            height: 200%;
+            width: 200%;
+            z-index: 998;
+            background-color: rgba(0,0,0,0.5);
+            left: 0;
+            top: 0;
+        }
     </style>
 
 </head>
@@ -216,7 +188,7 @@
 </form>
 <!-- 导航条-->
 <div id="header">
-    <div class="back"><span onclick="history.go(-1);"> < </span></div>
+    <div class="back"><span onclick="history.go(-1);"></span></div>
     <div class="title">预约列表</div>
     <div class="my"><span></span></div>
 </div>
@@ -224,7 +196,7 @@
 <div class="menu">
     <ul>
         <li class="first">预约列表</li>
-        <li class="second"><a href="<?php echo U('index/followView',['userId'=>$userId]);?>">关注事项</a></li>
+        <li class="second"><a href="<?php echo U('index/followView',array('userId'=>$userId));?>">关注事项</a></li>
     </ul>
 </div>
 <!--导航条-->
@@ -242,7 +214,7 @@ if(empty($list)){?>
     <div class="ab">
         <ul>
             <li>
-                <a href="<?php echo U('index/cancel',['projectId'=>$v['order_id'],'userId'=>$userId]);?>" <?php if($v['is_cancel']==1){?>
+                <a class="cancelOrder" href="<?php echo U('index/cancelOrder',array('projectId'=>$v['order_id'],'userId'=>$userId));?>" <?php if($v['is_cancel']==1){?>
                 style="color:gray;"<?php } ?>>取消预约</a></li>
             <li class="midline"><a onclick="advise('<?php echo $v['order_id']; ?>');">意见建议</a></li>
             <li><a onclick="pingjia('<?php echo $v['order_id']; ?>')">评价</a></li>
@@ -252,27 +224,104 @@ if(empty($list)){?>
 <?php } ?>
 
 <div id="pingjiap" class="cc">
-    <form action="" method="post" id="pingjia"><input type="hidden" name="ids" id="p">
+    <form action="" method="post" id="pingjia">
+        <input type="hidden" name="ids" id="p">
 
         <div id="tt">请输入评价详情！！</div>
-        <div class="tt"><label><input name="pingjia" type="radio" value="1"/>非常满意 </label> <label><input name="pingjia"
-                                                                                                         type="radio"
-                                                                                                         value="2"/>满意
-        </label><label><input name="pingjia" type="radio" value="3"/>不满意 </label></div>
-        <textarea name="contents" rows="5"></textarea><input type="submit" name="submit" value="提交" class="submit">
+        <div class="tt">
+            <label><input name="pingjia" type="radio" value="1" checked/>非常满意 </label>
+            <label><input name="pingjia" type="radio"  value="2"/>满意</label>
+            <label><input name="pingjia" type="radio" value="3"/>不满意 </label>
+        </div>
+        <textarea name="contents" rows="5"></textarea>
+        <input type="submit" name="submit" value="提交" class="submit">
     </form>
 </div>
 
 <div id="advisep" class="cc">
-    <form action="" method="post" id="advise"><input type="hidden" name="id" id="a">
+    <form action="" method="post" id="advise">
+        <input type="hidden" name="id" id="a">
 
-        <div id="tt">请输入建议内容！！</div>
-        <textarea name="advises" rows="5"></textarea><input type="submit" name="submit" value="提交" class="submit">
+        <div id="tt-1">请输入建议内容！！</div>
+        <textarea name="advises" rows="5"></textarea>
+        <input type="submit" name="submit" value="提交" class="submit">
     </form>
 </div>
 <div id="footer"
      style="color: #666; text-align: center; margin: 10px; font-size: 12px; width: 100%;position:fixed;bottom: 0px;">
     本服务由浙江政务服务网提供
 </div>
+
+<script type="text/javascript" src="/Public/js/hotcss.js"></script>
+<script type="text/javascript">
+    /*默认字号调整*/
+    function toPreCall(id) {
+        document.getElementById('transeId').value = id;
+        document.getElementById('infoFrom').setAttribute('action', '<?php echo U("index/getInfo");?>?projectId=' + id);
+        document.getElementById('infoFrom').submit();
+    }
+
+    function advise(id) {
+        document.getElementById('a').value = id;
+        document.getElementById('advise').setAttribute('action', '<?php echo U("index/advise");?>');
+        $("#advisep").show();
+        $("#pingjiap").hide();
+    }
+    function pingjia(id) {
+        document.getElementById('p').value = id;
+        document.getElementById('pingjia').setAttribute('action', '<?php echo U("index/pingjia");?>');
+        $("#pingjiap").show();
+        $("#advisep").hide();
+    }
+
+
+    $(document).ready(function() {
+        $('.cancelOrder').on('click', function (e) {
+            var  self = $(this);
+
+            if (e)
+                e.preventDefault();
+
+            $.ajax({
+                url:  self.prop('href'),
+                dataType: 'json',
+                success: function (data) {
+                    if (data.code != 0) {
+                        alert(data.message || '请求失败，请重试！')
+                    } else {
+                        self.closest('.qfgj_nr').remove();
+                    }
+                },
+                error: function () {
+                    alert('请求失败，请重试！');
+                }
+            })
+
+        })
+        $('input[type="submit"]').on('click', function(e) {
+            e.preventDefault();
+
+            var $form = $(this).closest('form');
+            $.ajax({
+                url:  $form.prop('action'),
+                data: $form.serialize(),
+                dataType: 'json',
+                success: function (data) {
+                    if (data.code != 0) {
+                        alert(data.message || '请求失败，请重试！')
+                    } else {
+                        $form.find('textarea').val('');
+                        $form.closest('div').fadeOut()
+                    }
+                },
+                error: function () {
+                    alert('请求失败，请重试！');
+                }
+            })
+
+        })
+    })
+
+</script>
 </body>
 </html>

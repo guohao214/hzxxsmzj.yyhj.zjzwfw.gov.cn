@@ -38,12 +38,12 @@ class IndexController extends Controller
         //$this->xsUrl='http://localhost/zjzwtp/api/';
     }
 
-    private function generateUrl($url, $apiHost='')
+    private function generateUrl($url, $apiHost = '')
     {
         if (!$apiHost)
             $apiHost = $this->apiHost;
 
-        $sign = (!strpos($url, '?')) ? '?': '&';
+        $sign = (!strpos($url, '?')) ? '?' : '&';
         return sprintf("{$apiHost}{$url}{$sign}appId={$this->appId}&secret={$this->secret}");
     }
 
@@ -78,7 +78,7 @@ class IndexController extends Controller
         // 顶级菜单ID
         $id = $_GET['id'] + 0;
 
-        $typeList= TypeList::getCacheTypeList();
+        $typeList = TypeList::getCacheTypeList();
         $this->typeList = $typeList['typeList'][$id];
 
         $this->display();
@@ -87,12 +87,13 @@ class IndexController extends Controller
     //通过类别获取项目列表
     function getList()
     {
-        $typeId = I('get.typeId',0,'intval');
-        $typeName = I('get.typeName','','strip_tags');
+        $typeId = I('get.typeId', 0, 'intval');
+        $typeName = I('get.typeName', '', 'strip_tags');
 
         $projectListUrl = $this->generateUrl("remote/project/projectList.do?type=" . $typeId);
         $response = Curl::curlGet($projectListUrl);
         $response = Curl::jsonToArray($response);
+
         if ($response['code'] == -9001) {
             echo '<script type="text/javascript">alert("该业务暂时不可用,请稍后再试!");history.go(-1);</script>';
             die;
@@ -108,7 +109,7 @@ class IndexController extends Controller
     //根据项目ID得到项目详情
     function getInfo()
     {
-        $projectId = I('get.projectId',0,'intval');
+        $projectId = I('get.projectId', 0, 'intval');
 
         $projectDetail = $this->generateUrl("remote/project/projectDetail?projectId=" . $projectId . "&userId=" . $_SESSION['citizen_uid']);
         $response = Curl::curlGet($projectDetail);
@@ -128,84 +129,86 @@ class IndexController extends Controller
      */
     function follow()
     {
-
         $userId = $_GET['userId'];
-
         $projectId = $_GET['projectId'];
 
         if (empty($userId) || empty($projectId)) {
             $this->error("请登陆后再做收藏!");
         }
 
+        $requestUrl = $this->generateUrl("remote/attention/saveAttention.do?userId=" . $userId . '&projectId=' . $projectId);
+        $response = Curl::curlGet($requestUrl);
+        $response = Curl::jsonToArray($response);
 
-        Curl::curlGet($this->xsUrl . 'index/follow?userId=' . $userId . '&projectId=' . $projectId);
-
-        redirect(U('Index/followView', array('userId' => $userId)));
+        if ($response && $response['success'] === true)
+            redirect(U('Index/followView', array('userId' => $userId)));
+        else
+            $this->error("关注失败!");
     }
 
-
-    //我的关注列表
+    /**
+     * 关注列表
+     */
     function followView()
     {
-
         $userId = $_GET['userId'];
 
-        $url = $this->xsUrl . 'index/followView?userId=' . $_GET['userId'];
-
-        $list = Curl::curlGet($url);
-
-        $list = json_decode($list, true);
-
-        foreach ($list as $k => $val) {
-            $url = $this->apiHost . "remote/project/getInfo.do?projectId=" . $val['project_id'] . "&userId=";
-            $data = Curl::curlGet($url);
-
-            $list[$k] = Curl::jsonToArray($data);
-        }
-
-        $this->list = $list;
-
+        $url = $this->generateUrl('remote/project/getMyList.do?userId=' . $userId);
+        $response = Curl::curlGet($url);
+        $response = Curl::jsonToArray($response);
+        $this->list = $response['data'];
         $this->userId = $userId;
 
         $this->display();
     }
 
+    /**
+     * 取消关注
+     */
+    public function cancelFollow()
+    {
+        $projectId = I('get.projectId', 0, 'strip_tags');
+        $userId = I('get.userId', 0, 'strip_tags');
+
+        $requestUrl = $this->generateUrl("remote/attention/doCancelAttention.do?projectId={$projectId}&userId={$userId}");
+        $response = Curl::curlGet($requestUrl);
+        $response = Curl::jsonToArray($response);
+
+        if ($response['code'] == 0)
+            $this->success("取消成功!");
+        else
+            $this->success("取消失败!");
+    }
 
     /**
      * 获取验证码
      */
-    function vcode()
+    function orderVcode()
     {
         $phone = $_GET['phone'];
-        $url = $this->apiHost . "remote/user/getVerification.do?phone=" . $phone;
-
+        $url = $this->generateUrl("remote/user/getVerification.do?phone=" . $phone);
         $arr = Curl::curlGet($url);
-
         $arr = Curl::jsonToArray($arr);
 
-        if ($arr['code'] == 1) {
-            $user_url = $this->apiHost . "remote/user/doLogin.do?mobilePhone=" . $phone;
+        if ($arr['code'] != 1) {
+            echo $user_url = $this->generateUrl("remote/user/doLogin.do?mobilePhone=" . $phone);
 
             $userInfo = Curl::curlGet($user_url);
-
             $userInfo = Curl::jsonToArray($userInfo);
-
             $_SESSION['city_uid'] = $userInfo['items'][0]['id'];
-
-            $_SESSION['vcode'] = $arr['data']['authCode'];
-
+            $_SESSION['orderVcode'] = $arr['data']['authCode'];
             echo $_SESSION['city_uid'];
         }
     }
 
     /**
-     * 我的预约列表
+     * 预约列表
      */
     function orderView()
     {
         $userId = $_GET['userId'];
-
-        $list = Curl::curlGet($this->xsUrl . 'index/orderView?userId=' . $userId);
+        $requestUrl = $this->generateUrl('remote/preCallInfo/getPreCallInfoList.do?userId=' . $userId);
+        $list = Curl::curlGet($requestUrl);
         $this->list = Curl::jsonToArray($list);
         $this->userId = $userId;
 
@@ -217,17 +220,17 @@ class IndexController extends Controller
     {
 
         $projectId = $_GET['projectId'];
+        //$url = $this->apiHost . "remote/preCallInfo/getRestDay.do?deptId=" .
+        //       $depid . "&year=" . date('Y', time());
 
-        $depid = $_GET['depid'];
-
-        $url = $this->apiHost . "remote/preCallInfo/getRestDay.do?deptId=" . $depid . "&year=" . date('Y', time());
-
+        $url = $this->generateUrl("remote/preCallInfo/getPreCallInfoById.do?projectId=" . $projectId);
         $data = Curl::curlGet($url);
-
         $data = Curl::jsonToArray($data);
 
-        $workdays = $data['items'][0]['workDays'];
+        if ($data['code'] != 1)
+            exit();
 
+        $workdays = $data['items'][0]['workDays'];
         $date = $this->getDateArr($workdays);
 
         $this->projectId = $projectId;
@@ -244,66 +247,45 @@ class IndexController extends Controller
      */
     function orderTo()
     {
-
-
-        $projectId = $_POST['projectId'];
-
-
-        $curDate = date("Y-m-d", time());
-
-        $userId = $_GET['userId'];
-
-        $phone = $_POST['phone'];
-
-        $vcode = $_POST['vcode'];
-
-        if ($vcode != $_SESSION['vcode']) {
+        if ($_POST['vcode'] != $_SESSION['orderVcode']) {
             echo "短信验证失败!";
             die;
         }
 
-        $orderdate = $_POST['orderdate'];
+        $data['projectId'] = $_POST['projectId'];
+        $data['phone'] = $_POST['phone'];
+        $data['userId'] = $_GET['userId'];
+        $data['precalDay'] = $_POST['orderdate'];
+        $data['period'] = $_POST['ordertime'];
 
-        $ordertime = $_POST['ordertime'];
+        $queryParams = http_build_query($data);
 
-        $url = $this->apiHost . "/remote/project/getInfo.do?projectId=" . $projectId . "&userId=" . $userId;
-
-        $saveurl = $this->newApiHost . "/remote/preCallInfo/save.do?phone=" . $phone . "&curDate=" . $curDate . "&projectId=" . $projectId . "&needInfo=0&precallDay=" . $orderdate . "&period=" . $ordertime . '&appId=' . $this->appId . '&secret=' . $this->secret;
-
-        $save = Curl::curlGet($saveurl);
-
-        $save = Curl::jsonToArray($save);
-
+        $requestUrl = $this->generateUrl("remote/preCallInfo/save.do" . $queryParams);
+        $response = Curl::curlGet($requestUrl);
+        $save = Curl::jsonToArray($response);
         $saveData = $save['data'];
 
-        p($save);
-        p($saveData);
-        die;
-        if ($save['code'] == 0 && !empty($saveData['precallInfoId'])) {
-
-            $arr = Curl::curlGet($url);
-
-            $arr = Curl::jsonToArray($arr);
-
-
-            $data = array(
-                "projectId" => $projectId,
-                "phone" => $phone,
-                "orderdate" => $orderdate,
-                "ordertime" => $ordertime,
-                "title" => $arr['items'][0]['title'],
-                "precallInfoId" => $saveData['precallInfoId']
-            );
-
-
-            Curl::curlPost($this->xsUrl . 'index/orderTo?userId=' . $userId, $data);
+        if ($save['code'] == 1) {
             echo '预约成功!';
             die;
+        } else {
+            echo '预约失败';
         }
-
-        echo '预约失败';
-
     }
+
+    /**
+     * 取消预约
+     */
+    public function cancelOrder()
+    {
+        $order_id = $_GET['id'];
+
+        $requestUrl = $this->generateUrl("remote/preCallInfo/cancel.do?id=" . $order_id);
+        $response = Curl::curlGet($requestUrl);
+
+        echo $response;
+    }
+
 
     /**
      * 解析可预约的日期字符串
@@ -370,72 +352,32 @@ class IndexController extends Controller
         echo json_encode($arr['items']);
     }
 
-
-    //取消预约
-    function cancel()
-    {
-
-        $order_id = $_GET['projectId'];
-
-        $userId = $_GET['userId'];
-
-        $url = $this->newApiHost . "remote/preCallInfo/cancel.do?id=" . $order_id . '&appId=' . $this->appId . '&secret=' . $this->secret;
-
-        $arr = Curl::curlGet($url);
-
-        $arr = Curl::jsonToArray($arr);
-
-        if ($arr['code'] == 0) {
-
-            Curl::curlGet($this->xsUrl . 'index/cancel?projectId=' . $order_id . '&userId=' . $userId);
-
-            $this->success("取消成功!");
-        }
-    }
-
-    //发送建议
+    /**
+     * 评价
+     */
     function pingjia()
     {
-        $order_id = $_POST['ids'];
-        $pingjia = $_POST['pingjia'];
-        $contents = $_POST['contents'];
+        $orderId = $_POST['ids'];
+        $review = $_POST['pingjia'];
+        $reviewContent = $_POST['contents'];
 
-        $url = $this->newApiHost . "remote/review/save?callId=" . $order_id . "&review=" . $pingjia . "&reviewContent=" . $contents . '&appId=' . $this->appId . '&secret=' . $this->secret;
-
+        $url = $this->generateUrl("remote/review/save.do?callId={$orderId}&reviewContent={$reviewContent}&review={$review}");
         $arr = Curl::curlGet($url);
 
-        $arr = Curl::jsonToArray($arr);
-
-        if ($arr['success'] == 'true') {
-            $this->success("评价发送成功!");
-        } else {
-            $this->error("评价发送失败!");
-        }
+        echo $arr;
     }
 
-    //发送评价
+    /**
+     * 意见
+     */
     function advise()
     {
         $order_id = $_POST['id'];
-        $advises = $_POST['advises'];
+        $revision = $_POST['advises'];
 
-        $url = $this->newApiHost . "remote/review/save.do?callId=" . $order_id . "&review=1&reviewContent=评价&revision=" . $advises . '&appId=' . $this->appId . '&secret=' . $this->secret;
-
+        $url = $this->generateUrl("remote/review/save.do?callId=" . $order_id . "&revision=" . $revision);
         $arr = Curl::curlGet($url);
 
-        $arr = Curl::jsonToArray($arr);
-
-        if ($arr['success'] == 'true') {
-            $this->success("评价发送成功!");
-        } else {
-            $this->error("评价发送失败!");
-        }
+        echo $arr;
     }
-
-
-    function test()
-    {
-        http_put_file("test.txt", $_POST['txt']);
-    }
-
 }

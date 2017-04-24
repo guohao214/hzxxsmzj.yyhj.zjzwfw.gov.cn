@@ -8,13 +8,11 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>萧山区市民服务中心</title>
+    <link href="/Public/css/style.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="/Public/js/jquery.min.js"></script>
     <script type="text/javascript" src="/Public/js/main.js"></script>
     <script type="text/javascript">
-
         /*默认字号调整*/
-
-
         (function (doc, win) {
             var docEl = doc.documentElement,
                     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -167,21 +165,20 @@
 </head>
 
 <body bgcolor="#f3f3f3">
-
 <form id="infoFrom" action="" method="post">
     <input type="hidden" name="id" id="transeId">
     <input type="hidden" name="typeId" value="<?php echo $typeid; ?>">
 </form>
 <!-- 导航条-->
 <div id="header">
-    <div class="back"><span onclick="history.go(-1);"> < </span></div>
+    <div class="back"><span onclick="history.go(-1);"></span></div>
     <div class="title">关注事项</div>
     <div class="my"><span></span></div>
 </div>
 
 <div class="menu">
     <ul>
-        <li class="first"><a href="<?php echo U('index/orderView',['userId'=>$userId]);?>">预约列表</a></li>
+        <li class="first"><a href="<?php echo U('index/orderView',array('userId'=>$userId));?>">预约列表</a></li>
         <li class="second">关注事项</li>
     </ul>
 </div>
@@ -197,7 +194,7 @@ if(empty($list)){?>
 <?php foreach($list as $k=>$v){ ?>
 <div class="qfgj_nr" style="cursor:hand">
     <div class="qfgj_nr_dh"><a class="zt20_l"
-                               href="<?php echo U('index/getInfo',['projectId'=>$v['items'][0]['id']]);?>" style="display: block;"><?php echo $v['items'][0]['title']; ?>
+                               href="<?php echo U('index/getInfo',array('projectId'=>$v['items'][0]['id']));?>" style="display: block;"><?php echo $v['items'][0]['title']; ?>
     </div>
     <?php if($v['items'][0]['canPreCall']!=1){ ?>
     <div class="qfgj_nr_nr_nr"><span class="yy_no">不可预约</span></div>

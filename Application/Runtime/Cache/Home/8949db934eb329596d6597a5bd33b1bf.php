@@ -8,10 +8,11 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>萧山区市民服务中心</title>
-<script type="text/javascript" src="/hzxxsmzj.yyhj.zjzwfw.gov.cn/Public/js/jquery.min.js"></script>
-<script type="text/javascript" src="/hzxxsmzj.yyhj.zjzwfw.gov.cn/Public/js/index.js"></script>
+<link href="/Public/css/style.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="/Public/js/jquery.min.js"></script>
+<script type="text/javascript" src="/Public/js/index.js"></script>
 <script data-main="http://app.zjzwfw.gov.cn/client/jssdkJS/jmportal_SDK.js" src="http://app.zjzwfw.gov.cn/client/jssdkJS/require.js"></script>
-	<script type="text/javascript" src="/hzxxsmzj.yyhj.zjzwfw.gov.cn/Public/js/main.js"></script>
+	<script type="text/javascript" src="/Public/js/main.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -99,7 +100,7 @@ function sendPhone(){
 	var tel=$("#phone").val();
 	var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
 	if (reg.test(tel)){
-		$.ajax({url:"<?php echo U('index/vcode');?>?phone="+tel,async:false,success:function(data){document.getElementById('city_id').value=data;}});set(10);}else{alert("号码有误~");}
+		$.ajax({url:"<?php echo U('index/vcode');?>?phone="+tel,async:false,success:function(data){document.getElementById('city_id').value=data;}});set(30);}else{alert("号码有误~");}
 }
 function set(s){
 	
@@ -123,7 +124,7 @@ select{border:1px solid #fff;outline:medium;height:1.5rem;font-size:.6rem;paddin
 </head>
 
 <body bgcolor="#f3f3f3">
-<div id="header"><div class="back"><span onclick="history.go(-1);"> < </span></div><div class="title">网上预约</div><div class="my"><span></span></div></div>
+<div id="header"><div class="back"><span onclick="history.go(-1);"></span></div><div class="title">网上预约</div><div class="my"><span></span></div></div>
 <div class="info">预约基本信息</div>
 <div class="success"></div>
 <div class="ff">
