@@ -9,110 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>萧山区市民服务中心</title>
     <link href="__PUBLIC__/css/style.css" type="text/css" rel="stylesheet"/>
-    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/js/function.js"></script>
-    <script data-main="http://app.zjzwfw.gov.cn/client/jssdkJS/jmportal_SDK.js"
-            src="http://app.zjzwfw.gov.cn/client/jssdkJS/require.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
-    <script type="text/javascript">
-        function follow() {
-            getUserInfo({
-                success: function (data) {
-                    if (data == '未登录') {
-                        loginApp();
-                    } else {
-                        getUser = jQuery.parseJSON(data);
-                        var userId = getUser['userid'];
-                        window.location.href = '<{:U("index/follow")}>?userId=' + userId + '&projectId=' + '<{$projectId}>'
-                    }
-                },
-                fail: function (data) {
-                    alert(data);
-                }
-            });
-
-        }
-        /*默认字号调整*/
-        (function (doc, win) {
-            var docEl = doc.documentElement,
-                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                recalc = function () {
-                    var clientWidth = docEl.clientWidth;
-                    if (clientWidth > 1080) {
-                        clientWidth = 1080;
-                        docEl.style.fontSize = 67.5 + 'px';
-                    }
-                    if (!clientWidth) return;
-                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                };
-            recalc();
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
-        })(document, window);
-
-        function getview(count) {
-
-            for (i = 1; i < 5; i++) {
-                if (i == count) {
-                    $(".v" + i).addClass("viewli");
-                    $(".view" + i).addClass("db");
-                    $(".view" + i).removeClass("dn");
-                } else {
-                    $(".v" + i).removeClass("viewli");
-                    $(".view" + i).addClass("dn");
-                    $(".view" + i).removeClass("db");
-                }
-            }
-
-
-        }
-
-        /**
-         * 预约
-         */
-        function toPreCall() {
-            getUserInfo({
-                success: function (data) {
-                    if (data == '未登录') {
-                        loginApp();
-                    } else {
-                        getUser = jQuery.parseJSON(data);
-                        var userId = getUser['userid'];
-                        var dePid = $("#depid").val();
-                        var authlevel = getUser['authlevel'];
-
-                        if (authlevel < 2) {
-                            window.location.href = 'http://puser.zjzwfw.gov.cn/sso/mobile.do?action=realname&servicecode=[]&goto=[]'
-                        } else {
-                            window.location.href = '<{:U("index/order")}>?userId=' + userId + '&projectId=' + '<{$projectId}>&depid=' + dePid
-                        }
-                    }
-                },
-                fail: function (data) {
-                    alert(data);
-                }
-            });
-            //	var str=window.web2ciciClient.getAppUinfo();
-            //	var uinfo=eval("("+str+")");
-            //
-            //	if(uinfo.uid==0){
-            //
-            //		window.web2ciciClient.login2js("checklogin");
-            //
-            //	}else{
-            //		document.getElementById('infoFrom').setAttribute('action','/api/citizen/order');
-            //		document.getElementById('infoFrom').submit();
-            //
-            //	}
-        }
-        function checklogin() {
-            document.getElementById('infoFrom').setAttribute('action', '/api/citizen/order');
-            document.getElementById('infoFrom').submit();
-
-        }
-    </script>
     <style type="text/css">
         body {
             font-size: .6rem;
@@ -266,6 +162,14 @@
             font-size: .7rem
         }
     </style>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/function.js"></script>
+    <script data-main="http://app.zjzwfw.gov.cn/client/jssdkJS/jmportal_SDK.js"
+            src="http://app.zjzwfw.gov.cn/client/jssdkJS/require.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
+
 
 </head>
 
@@ -297,23 +201,29 @@
 </div>
 
 <div class="view1">
-    <div class="sxxq_nr_nr_nr"><span class="zt18_h">部门（单位） : &nbsp;</span><?php echo $projectItems[0]['deptName']; ?> </div>
-    <div class="sxxq_nr_nr_nr"><span class="zt18_h">事项类别 :&nbsp; </span><?php echo $projectItems[0]['catagaryName']; ?> </div>
+    <div class="sxxq_nr_nr_nr"><span class="zt18_h">部门（单位） : &nbsp;</span><?php echo $projectItems[0]['deptName']; ?>
+    </div>
+    <div class="sxxq_nr_nr_nr"><span class="zt18_h">事项类别 :&nbsp; </span><?php echo $projectItems[0]['catagaryName']; ?>
+    </div>
     <div class="sxxq_nr_nr_nr"><span class="zt18_h">受理对象 :&nbsp; </span><?php $obj=array("1"=>
         "单位","2"=>"个人","3"=>"个人及单位");echo $obj[$projectItems[0]['acceptObject']]; ?>
     </div>
     <div class="sxxq_nr_nr_nr"><span class="zt18_h">法定期限 :&nbsp;</span><?php echo $projectItems[0]['setDay']; ?> </div>
-    <div class="sxxq_nr_nr_nr"><span class="zt18_h">办理时限 :&nbsp;</span><?php echo $projectItems[0]['acceptDay']; ?></div>
-    <div class="sxxq_nr_nr_nr"><span class="zt18_h">办理窗口 :&nbsp;</span><?php echo $projectItems[0]['acceptWindow']; ?></div>
-    <div class="sxxq_nr_nr_nr"><span class="zt18_h">办事窗口次数 :&nbsp;</span><?php echo $projectItems[0]['acceptCount']; ?></div>
-    <div class="sxxq_nr_nr_nr"><span class="zt18_h">受理地点 :&nbsp; </span><?php echo $projectItems[0]['address']; ?>  </div>
+    <div class="sxxq_nr_nr_nr"><span class="zt18_h">办理时限 :&nbsp;</span><?php echo $projectItems[0]['acceptDay']; ?>
+    </div>
+    <div class="sxxq_nr_nr_nr"><span class="zt18_h">办理窗口 :&nbsp;</span><?php echo $projectItems[0]['acceptWindow']; ?>
+    </div>
+    <div class="sxxq_nr_nr_nr"><span class="zt18_h">办事窗口次数 :&nbsp;</span><?php echo $projectItems[0]['acceptCount']; ?>
+    </div>
+    <div class="sxxq_nr_nr_nr"><span class="zt18_h">受理地点 :&nbsp; </span><?php echo $projectItems[0]['address']; ?></div>
     <div class="sxxq_nr_nr_nr"><span class="zt18_h">所需材料 :&nbsp; </span><?php echo preg_replace('%style="[^>
         ]+"%',"",$projectItems[0]['needMaterial']); ?>
     </div>
 </div>
 
 <div class="view2 dn">
-    <div class="sxxq_nr_nr_nr"><?php echo preg_replace('%style="[^>]+"%',"",$projectItems[0]['acceptConditions']); ?></div>
+    <div class="sxxq_nr_nr_nr"><?php echo preg_replace('%style="[^>]+"%',"",$projectItems[0]['acceptConditions']); ?>
+    </div>
 </div>
 
 <div class="view3 dn">
@@ -339,5 +249,74 @@
      style="color: #666; text-align: center; margin: 10px; font-size: 12px; width: 100%;position:fixed;bottom: 0px;">
     本服务由浙江政务服务网提供
 </div>
+
+<script type="text/javascript">
+    if (typeof getUserInfo === 'undefined') {
+        function getUserInfo(params) {
+            //params.success(JSON.stringify({userid: 123}))
+        }
+    }
+
+    function follow() {
+        getUserInfo({
+            success: function (data) {
+                if (data == '未登录') {
+                    loginApp();
+                } else {
+                    getUser = jQuery.parseJSON(data);
+                    var userId = getUser['userid'];
+                    window.location.href = '<{:U("index/follow")}>?userId=' + userId + '&projectId='
+                        + '<{$projectId}>'
+                }
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+
+    }
+
+    function getview(count) {
+
+        for (i = 1; i < 5; i++) {
+            if (i == count) {
+                $(".v" + i).addClass("viewli");
+                $(".view" + i).addClass("db");
+                $(".view" + i).removeClass("dn");
+            } else {
+                $(".v" + i).removeClass("viewli");
+                $(".view" + i).addClass("dn");
+                $(".view" + i).removeClass("db");
+            }
+        }
+    }
+
+    /**
+     * 预约
+     */
+    function toPreCall() {
+        getUserInfo({
+            success: function (data) {
+                if (data == '未登录') {
+                    loginApp();
+                } else {
+                    getUser = jQuery.parseJSON(data);
+                    var userId = getUser['userid'];
+                    var dePid = $("#depid").val();
+                    var authlevel = getUser['authlevel'];
+
+                    if (authlevel < 2) {
+                        window.location.href = 'http://puser.zjzwfw.gov.cn/sso/mobile.do?action=realname&servicecode=[]&goto=[]'
+                    } else {
+                        window.location.href = '<{:U("index/order")}>?userId=' + userId + '&projectId=' + '<{$projectId}>&depid=' + dePid
+                    }
+                }
+            },
+            fail: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>
 </body>
 </html>

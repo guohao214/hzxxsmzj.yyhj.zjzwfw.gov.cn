@@ -16,6 +16,15 @@ class TypeList
 
     public static function getCacheTypeList()
     {
+        $lastCreateTime = filemtime(self::$cacheName);
+        $nowTime = mktime();
+
+        if ($nowTime - $lastCreateTime > self::$cacheTime) {
+            //
+            unlink(self::$cacheName);
+            return false;
+        }
+
         $typeList = file_get_contents(self::$cacheName);
         return json_decode($typeList, true);
     }

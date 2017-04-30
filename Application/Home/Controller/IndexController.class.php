@@ -4,6 +4,7 @@ namespace Home\Controller;
 
 use Home\Api\Curl;
 use Home\Api\TypeList;
+use Home\Api\DateUtil;
 use Think\Controller;
 
 class IndexController extends Controller
@@ -38,24 +39,27 @@ class IndexController extends Controller
         //$this->xsUrl='http://localhost/zjzwtp/api/';
     }
 
+    /**
+     * 生成api地址
+     * @param $url
+     * @param string $apiHost
+     * @return string
+     */
     private function generateUrl($url, $apiHost = '')
     {
         if (!$apiHost)
             $apiHost = $this->apiHost;
 
         $sign = (!strpos($url, '?')) ? '?' : '&';
-        return sprintf("{$apiHost}{$url}{$sign}appId={$this->appId}&secret={$this->secret}");
+
+        return "{$apiHost}{$url}{$sign}appId={$this->appId}&secret={$this->secret}";
     }
 
-    //主页
+    /**
+     * 获得分类
+     */
     public function index()
     {
-        parse_str(authcode($_REQUEST['authcode'], 'DECODE', $this->authkey), $p);
-
-        if ($p['uid'] != $_SESSION['citizen_uid']) {
-            $_SESSION['citizen_uid'] = 0;
-        }
-
         if (!($typeList = TypeList::getCacheTypeList())) {
             $getProjectTypeListUrl = $this->generateUrl("remote/project/getProjectTypeList.do");
             $response = Curl::curlGet($getProjectTypeListUrl);
@@ -64,19 +68,17 @@ class IndexController extends Controller
             $typeList = TypeList::setCacheTypeList($response);
         }
 
-//        $default_url = $this->generateUrl("remote/project/getTypeList.do?parentId=" . $pid);
-//        $default_arr = Curl::curlGet($default_url);
-//        $default_arr = Curl::jsonToArray($default_arr);
-//        $arr['data'] = sortData($default_arr, $pid);
-
         $this->list = $typeList;
         $this->display();
     }
 
+    /**
+     * 获得分类列表
+     */
     public function getTypeList()
     {
         // 顶级菜单ID
-        $id = $_GET['id'] + 0;
+        $id = I('get.id', 0, 'strip_tags');
 
         $typeList = TypeList::getCacheTypeList();
         $this->typeList = $typeList['typeList'][$id];
@@ -84,10 +86,12 @@ class IndexController extends Controller
         $this->display();
     }
 
-    //通过类别获取项目列表
+    /**
+     * 获得分类列表的项目列表
+     */
     function getList()
     {
-        $typeId = I('get.typeId', 0, 'intval');
+        $typeId = I('get.typeId', 0, 'strip_tags');
         $typeName = I('get.typeName', '', 'strip_tags');
 
         $projectListUrl = $this->generateUrl("remote/project/projectList.do?type=" . $typeId);
@@ -99,19 +103,21 @@ class IndexController extends Controller
             die;
         }
         $this->projectList = $response;
-        $this->authcode = $_REQUEST['authcode'];
         $this->typeId = $typeId;
         $this->typeName = $typeName;
 
         $this->display();
     }
 
-    //根据项目ID得到项目详情
+    /**
+     * 根据项目ID得到项目详情
+     */
     function getInfo()
     {
-        $projectId = I('get.projectId', 0, 'intval');
+        $projectId = I('get.projectId', 0, 'strip_tags');
 
-        $projectDetail = $this->generateUrl("remote/project/projectDetail?projectId=" . $projectId . "&userId=" . $_SESSION['citizen_uid']);
+        $projectDetail = $this->generateUrl("remote/project/projectDetail?projectId=" .
+            $projectId . "&userId=" . $_SESSION['citizen_uid']);
         $response = Curl::curlGet($projectDetail);
         $response = Curl::jsonToArray($response);
 
@@ -218,26 +224,17 @@ class IndexController extends Controller
     //预约详情页
     function order()
     {
-
         $projectId = $_GET['projectId'];
-        //$url = $this->apiHost . "remote/preCallInfo/getRestDay.do?deptId=" .
-        //       $depid . "&year=" . date('Y', time());
-
-        $url = $this->generateUrl("remote/preCallInfo/getPreCallInfoById.do?projectId=" . $projectId);
-        $data = Curl::curlGet($url);
-        $data = Curl::jsonToArray($data);
-
-        if ($data['code'] != 1)
-            exit();
-
-        $workdays = $data['items'][0]['workDays'];
-        $date = $this->getDateArr($workdays);
-
         $this->projectId = $projectId;
 
-        $this->date = $date;
+        // 生成预约日期
+        $days = DateUtil::buildDays();
+        $this->days = $days;
 
-        $this->time = $this->gettime($projectId, $date[0], true);
+        // 时间段
+        $times = DateUtil::generateAppointmentTime(DateUtil::day(), '08:30', '17:00');
+        $times = array_keys($times);
+        $this->times = $times;
 
         $this->display();
     }
@@ -247,30 +244,17 @@ class IndexController extends Controller
      */
     function orderTo()
     {
-        if ($_POST['vcode'] != $_SESSION['orderVcode']) {
-            echo "短信验证失败!";
-            die;
-        }
-
         $data['projectId'] = $_POST['projectId'];
         $data['phone'] = $_POST['phone'];
-        $data['userId'] = $_GET['userId'];
+        $data['idCard'] = $_POST['idCard'];
+        $data['userId'] = $_POST['userId'];
         $data['precalDay'] = $_POST['orderdate'];
         $data['period'] = $_POST['ordertime'];
 
         $queryParams = http_build_query($data);
+        $requestUrl = $this->generateUrl("remote/preCallInfo/save.do?" . $queryParams);
 
-        $requestUrl = $this->generateUrl("remote/preCallInfo/save.do" . $queryParams);
-        $response = Curl::curlGet($requestUrl);
-        $save = Curl::jsonToArray($response);
-        $saveData = $save['data'];
-
-        if ($save['code'] == 1) {
-            echo '预约成功!';
-            die;
-        } else {
-            echo '预约失败';
-        }
+        echo Curl::curlGet($requestUrl);
     }
 
     /**

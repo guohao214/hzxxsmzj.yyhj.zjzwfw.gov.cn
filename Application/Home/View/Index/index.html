@@ -145,7 +145,17 @@
 
             $container.html('');
             $loadEffect.show();
+            $.ajaxSetup({
+                error: function () {
+                    window.location.reload();
+                }
+            })
             $.get(host + '/getTypeList', {id: $id}, function (data) {
+                if (!$.trim(data)) {
+                    window.location.reload();
+                    return;
+                }
+
                 $loadEffect.hide();
                 $container.html(data);
                 window.location.href = '#' + $id
