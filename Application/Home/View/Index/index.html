@@ -93,6 +93,7 @@
     <script type="text/javascript" src="http://app.zjzwfw.gov.cn/client/jssdknew/js/index.js"></script>
     <script data-main="http://app.zjzwfw.gov.cn/client/jssdkJS/jmportal_SDK.js"
             src="http://app.zjzwfw.gov.cn/client/jssdkJS/require.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
 </head>
 <body bgcolor="#f3f3f3">
@@ -170,9 +171,7 @@
         else
             $('.top-type-list li:first').trigger('click');
     })
-</script>
 
-<script type="text/javascript">
     function my() {
         getUserInfo({
             success: function (data) {
@@ -181,7 +180,8 @@
                 } else {
                     getUser = jQuery.parseJSON(data);
                     var userId = getUser['userid'];
-                    location.href = '<{:U("index/orderView")}>?userId=' + userId
+                    var mobile = getUser['mobile'];
+                    location.href = '<{:U("index/orderView")}>?userId=' + userId + '&mobile=' + mobile
                 }
             },
             fail: function (data) {
@@ -193,25 +193,6 @@
     function back() {
         window.web2ciciClient.webClose();
     }
-
-    /*默认字号调整*/
-    (function (doc, win) {
-        var docEl = doc.documentElement,
-            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-            recalc = function () {
-                var clientWidth = docEl.clientWidth;
-                if (clientWidth > 1080) {
-                    clientWidth = 1080;
-                    docEl.style.fontSize = 67.5 + 'px';
-                }
-                if (!clientWidth) return;
-                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-            };
-        recalc();
-        if (!doc.addEventListener) return;
-        win.addEventListener(resizeEvt, recalc, false);
-        doc.addEventListener('DOMContentLoaded', recalc, false);
-    })(document, window);
 </script>
 
 </body>

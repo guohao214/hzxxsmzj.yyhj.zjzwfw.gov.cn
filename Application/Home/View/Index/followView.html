@@ -11,28 +11,7 @@
     <link href="__PUBLIC__/css/style.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
-    <script type="text/javascript">
-        /*默认字号调整*/
-        (function (doc, win) {
-            var docEl = doc.documentElement,
-                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                    recalc = function () {
-                        var clientWidth = docEl.clientWidth;
-                        if (clientWidth > 1080) {
-                            clientWidth = 1080;
-                            docEl.style.fontSize = 67.5 + 'px';
-                        }
-                        if (!clientWidth) return;
-                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                    };
-            recalc();
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
-        })(document, window);
-
-
-    </script>
+    <script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
     <style type="text/css">
         body {
             font-size: .6rem;

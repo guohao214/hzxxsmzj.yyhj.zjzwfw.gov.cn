@@ -251,12 +251,6 @@
 </div>
 
 <script type="text/javascript">
-    if (typeof getUserInfo === 'undefined') {
-        function getUserInfo(params) {
-            //params.success(JSON.stringify({userid: 123}))
-        }
-    }
-
     function follow() {
         getUserInfo({
             success: function (data) {
@@ -265,8 +259,9 @@
                 } else {
                     getUser = jQuery.parseJSON(data);
                     var userId = getUser['userid'];
+                    var mobile = getUser['mobile'];
                     window.location.href = '<{:U("index/follow")}>?userId=' + userId + '&projectId='
-                        + '<{$projectId}>'
+                        + '<{$projectId}>' + '&mobile=' + mobile
                 }
             },
             fail: function (data) {

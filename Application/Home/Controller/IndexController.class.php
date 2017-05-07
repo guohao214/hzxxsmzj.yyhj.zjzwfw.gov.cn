@@ -17,6 +17,9 @@ class IndexController extends Controller
     private $secret;
     private $xsUrl;
 
+    // 获得用户ID
+    private $getUserInfoHost = 'http://www.xsbszx.gov.cn/baseinf/';
+
     function __construct()
     {
         session_start();
@@ -53,6 +56,24 @@ class IndexController extends Controller
         $sign = (!strpos($url, '?')) ? '?' : '&';
 
         return "{$apiHost}{$url}{$sign}appId={$this->appId}&secret={$this->secret}";
+    }
+
+    /**
+     * 获得用户ID
+     * @param $phone
+     * @return integer || boolean
+     */
+    protected function getUserIdByPhone($phone)
+    {
+        $requestUrl = "{$this->getUserInfoHost}remote/wechatUser/getWeixinUserByPhone.do?phone={$phone}&appId=08377248&secret=6fb84d54-58e8-40cc-8fe7-718dc5900916";
+
+        $response = Curl::curlGet($requestUrl);
+        var_dump($response);
+        $response = Curl::jsonToArray($response);
+        if ($response && $response['code'] == 0 && $response['id'])
+            return $response['id'];
+        else
+            return false;
     }
 
     /**
@@ -137,6 +158,9 @@ class IndexController extends Controller
     {
         $userId = $_GET['userId'];
         $projectId = $_GET['projectId'];
+        $mobile = $_GET['mobile'];
+
+        $userId = $this->getUserIdByPhone($mobile);
 
         if (empty($userId) || empty($projectId)) {
             $this->error("请登陆后再做收藏!");
@@ -147,7 +171,7 @@ class IndexController extends Controller
         $response = Curl::jsonToArray($response);
 
         if ($response && $response['success'] === true)
-            redirect(U('Index/followView', array('userId' => $userId)));
+            redirect(U('Index/followView', array('userId' => $userId, 'mobile' => $mobile)));
         else
             $this->error("关注失败!");
     }
@@ -158,6 +182,9 @@ class IndexController extends Controller
     function followView()
     {
         $userId = $_GET['userId'];
+        $mobile = $_GET['mobile'];
+
+        $userId = $this->getUserIdByPhone($mobile);
 
         $url = $this->generateUrl('remote/project/getMyList.do?userId=' . $userId);
         $response = Curl::curlGet($url);
@@ -213,6 +240,9 @@ class IndexController extends Controller
     function orderView()
     {
         $userId = $_GET['userId'];
+        $mobile = $_GET['mobile'];
+
+        var_dump($this->getUserIdByPhone($mobile));exit;
         $requestUrl = $this->generateUrl('remote/preCallInfo/getPreCallInfoList.do?userId=' . $userId);
         $list = Curl::curlGet($requestUrl);
         $this->list = Curl::jsonToArray($list);
