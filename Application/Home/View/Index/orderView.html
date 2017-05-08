@@ -11,6 +11,7 @@
     <link href="__PUBLIC__/css/style.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
 
     <style type="text/css">
         body {
@@ -196,7 +197,7 @@
 <div class="menu">
     <ul>
         <li class="first">预约列表</li>
-        <li class="second"><a href="<{:U('index/followView',array('userId'=>$userId))}>">关注事项</a></li>
+        <li class="second"><a href="<{:U('index/followView',array('userId'=>$userId, 'mobile' => $mobile))}>">关注事项</a></li>
     </ul>
 </div>
 <!--导航条-->
@@ -252,7 +253,7 @@ if(empty($list)){?>
     本服务由浙江政务服务网提供
 </div>
 
-<script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
+
 <script type="text/javascript">
     /*默认字号调整*/
     function toPreCall(id) {
