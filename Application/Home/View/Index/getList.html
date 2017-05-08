@@ -10,6 +10,7 @@
     <title>萧山区市民服务中心</title>
     <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
     <link href="__PUBLIC__/css/style.css" type="text/css" rel="stylesheet"/>
     <style type="text/css">
         body {
@@ -103,27 +104,6 @@
             margin-right: .5rem;
         }
     </style>
-    <script type="text/javascript">
-        /*默认字号调整*/
-        (function (doc, win) {
-            var docEl = doc.documentElement,
-                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                    recalc = function () {
-                        var clientWidth = docEl.clientWidth;
-                        if (clientWidth > 1080) {
-                            clientWidth = 1080;
-                            docEl.style.fontSize = 67.5 + 'px';
-                        }
-                        if (!clientWidth) return;
-                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                    };
-            recalc();
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
-        })(document, window);
-    </script>
-
 </head>
 <body bgcolor="#f3f3f3">
 

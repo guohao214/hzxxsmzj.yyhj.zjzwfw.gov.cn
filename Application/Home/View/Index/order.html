@@ -81,7 +81,8 @@
         input {
             border: 1px solid #fff;
             outline: medium;
-            height: 1.5rem
+            height: 1.5rem;
+            width: 9rem;
         }
 
         #phone, #vcode {
@@ -149,12 +150,6 @@
     <script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            if (typeof getUserInfo === 'undefined') {
-                function getUserInfo(params) {
-                    //params.success(JSON.stringify({userid: 123}))
-                }
-            }
-
             function toPreCall() {
                 var id = $('#projectId').val();
                 if (!id) {
@@ -168,6 +163,7 @@
                         } else {
                             getUser = jQuery.parseJSON(data);
                             var userId = getUser['userid'];
+                            var mobile = getUser['mobile'];
                             $.ajax({
                                 url: '<{:U("index/orderTo")}>',
                                 dataType: 'json',
@@ -178,13 +174,14 @@
                                     phone: $('#phone').val(),
                                     idCard: $('#idCard').val(),
                                     orderdate: $('#orderdate').val(),
-                                    ordertime: $('#ordertime').val()
+                                    ordertime: $('#ordertime').val(),
+                                    mobile: mobile
                                 },
                                 success: function (data) {
                                     if (data.code != 0){
                                         alert(data.message || '预约失败');
                                     } else{
-                                        window.location.href = '<{:U("index/orderView")}>'
+                                        window.location.href = '<{:U('index/orderView', array('mobile' => $mobile))}>'
                                     }
 
                                 },
@@ -198,8 +195,6 @@
                         alert(data);
                     }
                 });
-
-
             }
 
             window.toPreCall = toPreCall;

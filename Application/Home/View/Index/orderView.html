@@ -258,7 +258,9 @@ if(empty($list)){?>
     /*默认字号调整*/
     function toPreCall(id) {
         document.getElementById('transeId').value = id;
-        document.getElementById('infoFrom').setAttribute('action', '<{:U("index/getInfo")}>?projectId=' + id);
+        document.getElementById('infoFrom').setAttribute('action',
+            '<{:U("index/getInfo")}>?projectId=' + id
+            +'&userId=' + '<?php echo $userId;?>' + '&mobile='+ '<?php echo $mobile;?>');
         document.getElementById('infoFrom').submit();
     }
 

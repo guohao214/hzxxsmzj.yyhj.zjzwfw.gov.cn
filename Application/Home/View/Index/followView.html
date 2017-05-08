@@ -172,10 +172,11 @@ if(empty($list)){?>
 <?php if(!empty($list)){ ?>
 <?php foreach($list as $k=>$v){ ?>
 <div class="qfgj_nr" style="cursor:hand">
-    <div class="qfgj_nr_dh"><a class="zt20_l"
-                               href="<{:U('index/getInfo',array('projectId'=>$v['items'][0]['id']))}>" style="display: block;"><?php echo $v['items'][0]['title']; ?>
+    <div class="qfgj_nr_dh">
+        <a class="zt20_l" href="<{:U('index/getInfo',array('projectId'=>$v['id'], 'userId' => $userId, 'mobile' => $mobile))}>" style="display: block;"><?php echo $v['title']; ?>
+    </a>
     </div>
-    <?php if($v['items'][0]['canPreCall']!=1){ ?>
+    <?php if($v['yuzt']!=1){ ?>
     <div class="qfgj_nr_nr_nr"><span class="yy_no">不可预约</span></div>
     </a>
     <?php }else{ ?>

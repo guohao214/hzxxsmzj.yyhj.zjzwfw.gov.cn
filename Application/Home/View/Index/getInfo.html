@@ -161,6 +161,89 @@
             display: inline-block;
             font-size: .7rem
         }
+        .loadEffect {
+            width: 50px;
+            height: 50px;
+            /* position: relative; */
+            margin: 0 auto;
+            margin-top: 50%;
+            position: absolute;
+            z-index: 99999;
+            left: 50%;
+            /* top: 100px; */
+            margin-left: -25px;
+        }
+
+        .loadEffect span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: black;
+            position: absolute;
+            -webkit-animation: load 1.04s ease infinite;
+        }
+
+        @-webkit-keyframes load {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
+
+        .loadEffect span:nth-child(1) {
+            left: 0;
+            top: 50%;
+            margin-top: -4px;
+            -webkit-animation-delay: 0.13s;
+        }
+
+        .loadEffect span:nth-child(2) {
+            left: 7px;
+            top: 7px;
+            -webkit-animation-delay: 0.26s;
+        }
+
+        .loadEffect span:nth-child(3) {
+            left: 50%;
+            top: 0;
+            margin-left: -4px;
+            -webkit-animation-delay: 0.39s;
+        }
+
+        .loadEffect span:nth-child(4) {
+            top: 7px;
+            right: 7px;
+            -webkit-animation-delay: 0.52s;
+        }
+
+        .loadEffect span:nth-child(5) {
+            right: 0;
+            top: 50%;
+            margin-top: -4px;
+            -webkit-animation-delay: 0.65s;
+        }
+
+        .loadEffect span:nth-child(6) {
+            right: 7px;
+            bottom: 7px;
+            -webkit-animation-delay: 0.78s;
+        }
+
+        .loadEffect span:nth-child(7) {
+            bottom: 0;
+            left: 50%;
+            margin-left: -4px;
+            -webkit-animation-delay: 0.91s;
+        }
+
+        .loadEffect span:nth-child(8) {
+            bottom: 7px;
+            left: 7px;
+            -webkit-animation-delay: 1.04s;
+        }
     </style>
     <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
@@ -169,8 +252,6 @@
             src="http://app.zjzwfw.gov.cn/client/jssdkJS/require.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/hotcss.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
-
-
 </head>
 
 <body bgcolor="#f3f3f3">
@@ -183,7 +264,9 @@
 <div id="header">
     <div class="back"><span onclick="history.go(-1);"></span></div>
     <div class="title">详情</div>
+    <?php if ($isAttention == 0): ?>
     <div class="my"><span><a onclick="follow();">关注</a></span></div>
+    <?php endif; ?>
 </div>
 <div style="height:.5rem;clear:both;overflow:hidden;"></div>
 
@@ -235,9 +318,10 @@
 </div>
 
 <!--tel:<?php echo $items[0]['telphone']; ?>-->
-<div class="sxxq_nr_dh_y"><a href="#"
-                             class="zt18_l STYLE1"
-                             onclick="onCallPhone('<?php echo $projectItems[0]['telphone']; ?>')"><?php echo $projectItems[0]['telphone']; ?></a>
+<div class="sxxq_nr_dh_y">
+    <a href="#" class="zt18_l STYLE1" onclick="onCallPhone('<?php echo $projectItems[0]['telphone']; ?>')">
+        <?php echo $projectItems[0]['telphone']; ?>
+    </a>
 </div>
 
 <div class="sxxq_bottom_nr_zj" style="cursor:hand"><?php if($projectItems[0]['yuzt']==1){ ?><a
@@ -250,7 +334,45 @@
     本服务由浙江政务服务网提供
 </div>
 
+<?php if ($loading):?>
+<div style="position: fixed;height: 100%;width: 100%;
+    left: 0;top: 0;background-color: rgba(0,0,0,0.3)">
+    <div class="loadEffect">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<?php endif;?>
+
 <script type="text/javascript">
+    var mobile = "<?php echo $mobile; ?>";
+    var projectId = "<?php echo $projectId; ?>";
+    $(document).ready(function () {
+        if (!mobile) {
+            getUserInfo({
+                success: function (data) {
+                    if (data == '未登录') {
+                        loginApp();
+                    } else {
+                        getUser = jQuery.parseJSON(data);
+                        var userId = getUser['userid'];
+                        var mobile = getUser['mobile'];
+                        location.replace('<{:U("index/getInfo")}>?projectId=' + projectId + '&mobile=' + mobile)
+                    }
+                },
+                fail: function (data) {
+                    alert(data);
+                }
+            });
+        }
+    })
+
     function follow() {
         getUserInfo({
             success: function (data) {
@@ -297,13 +419,15 @@
                 } else {
                     getUser = jQuery.parseJSON(data);
                     var userId = getUser['userid'];
+                    var mobile = getUser['mobile'];
                     var dePid = $("#depid").val();
                     var authlevel = getUser['authlevel'];
 
                     if (authlevel < 2) {
                         window.location.href = 'http://puser.zjzwfw.gov.cn/sso/mobile.do?action=realname&servicecode=[]&goto=[]'
                     } else {
-                        window.location.href = '<{:U("index/order")}>?userId=' + userId + '&projectId=' + '<{$projectId}>&depid=' + dePid
+                        window.location.href = '<{:U("index/order")}>?userId=' + userId
+                            + '&projectId=' + '<{$projectId}>&depid=' + dePid + '&mobile=' + mobile
                     }
                 }
             },
