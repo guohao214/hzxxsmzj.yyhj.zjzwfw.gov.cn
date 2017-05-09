@@ -118,7 +118,8 @@
             margin-left: -6rem;
             border: .05rem solid #ccc;
             padding: .5rem 0;
-            background: #eee
+            background: #eee;
+            z-index: 100;
         }
 
         #tt, .tt, #tt-1 {
@@ -209,16 +210,17 @@ if(empty($list)){?>
 <?php }?>
 <?php foreach($list as $k=>$v){?>
 <div class="qfgj_nr">
-    <div class="qfgj_nr_dh" onClick="toPreCall('<?php echo $v['projectid']; ?>')" style="cursor:hand"><a
-            class="zt20_l"><?php echo $v['title']; ?></a></div>
-    <div class="cd">已预约时间：<?php echo $v['odate']." ".$v['otime']; ?></div>
+    <div class="qfgj_nr_dh" onClick="toPreCall('<?php echo $v['projectId']; ?>')" style="cursor:hand"><a
+            class="zt20_l"><?php echo $v['projectName']; ?></a></div>
+    <div class="cd">已预约时间：<?php echo $v['precallDay']." ".$v['otime']; ?></div>
     <div class="ab">
         <ul>
             <li>
-                <a class="cancelOrder" href="<{:U('index/cancelOrder',array('projectId'=>$v['order_id'],'userId'=>$userId))}>" <?php if($v['is_cancel']==1){?>
+                <a class="cancelOrder" href="<{:U('index/cancelOrder',array('id'=>$v['id'],'userId'=>$userId))}>"
+                <?php if($v['is_cancel']==1){?>
                 style="color:gray;"<?php } ?>>取消预约</a></li>
-            <li class="midline"><a onclick="advise('<?php echo $v['order_id']; ?>');">意见建议</a></li>
-            <li><a onclick="pingjia('<?php echo $v['order_id']; ?>')">评价</a></li>
+            <li class="midline"><a onclick="advise('<?php echo $v['id']; ?>');">意见建议</a></li>
+            <li><a onclick="pingjia('<?php echo $v['id']; ?>')">评价</a></li>
         </ul>
     </div>
 </div>
@@ -254,6 +256,10 @@ if(empty($list)){?>
 </div>
 
 
+<div id="bg" style="display:none;position: fixed;width: 100%;
+height: 100%; z-index: 99; background-color: rgba(0,0,0,0.5); left: 0; top: 0"></div>
+
+
 <script type="text/javascript">
     /*默认字号调整*/
     function toPreCall(id) {
@@ -265,12 +271,14 @@ if(empty($list)){?>
     }
 
     function advise(id) {
+        $('#bg').show();
         document.getElementById('a').value = id;
         document.getElementById('advise').setAttribute('action', '<{:U("index/advise")}>');
         $("#advisep").show();
         $("#pingjiap").hide();
     }
     function pingjia(id) {
+        $('#bg').show();
         document.getElementById('p').value = id;
         document.getElementById('pingjia').setAttribute('action', '<{:U("index/pingjia")}>');
         $("#pingjiap").show();
@@ -279,6 +287,10 @@ if(empty($list)){?>
 
 
     $(document).ready(function() {
+        $('#bg').on('click', function () {
+            $(this).add($("#pingjiap")).add($("#advisep")).hide()
+        })
+
         $('.cancelOrder').on('click', function (e) {
             var  self = $(this);
 
@@ -309,6 +321,7 @@ if(empty($list)){?>
                 url:  $form.prop('action'),
                 data: $form.serialize(),
                 dataType: 'json',
+                method: 'post',
                 success: function (data) {
                     if (data.code != 0) {
                         alert(data.message || '请求失败，请重试！')

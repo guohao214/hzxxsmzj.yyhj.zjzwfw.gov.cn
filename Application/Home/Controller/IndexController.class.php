@@ -231,11 +231,10 @@ class IndexController extends Controller
     if (!$userId)
       $this->error('用户不存在或者发生错误了');
 
-    echo $requestUrl = $this->generateUrl('remote/preCallInfo/getPreCallInfoList.do?userId=' . $userId);
+    $requestUrl = $this->generateUrl('remote/preCallInfo/getPreCallInfoList.do?userId=' . $userId);
     $response = Curl::curlGet($requestUrl);
     $response = Curl::jsonToArray($response);
-    var_dump($response);exit;
-    $this->list = $response;
+    $this->list = $response['items'];
 
     $this->userId = $userId;
     $this->mobile = $mobile;
@@ -296,72 +295,6 @@ class IndexController extends Controller
     echo $response;
   }
 
-
-  /**
-   * 解析可预约的日期字符串
-   * $str='010111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110111111011111101111110011111011111101111110111111011111101111110111111011111101111110111111011111101111110111111';
-   * print_r(getDateArr($str);
-   * @param $str
-   * @return array
-   */
-  private function getDateArr($str)
-  {
-    $len = strlen($str);
-    $arr = array();
-
-    for ($i = 0; $i < $len; $i++) {
-
-      $firstDay = date("Y-01-01", time());
-
-      $date = date("Y-m-d", strtotime("$firstDay + $i day"));
-
-      $arr[$date] = substr($str, $i, 1);
-
-    }
-    $newDay = date("Y-m-d", time());
-
-    $newArr = array();
-    while (count($newArr) < 5) {
-
-      $newDay = date("Y-m-d", strtotime("$newDay + 1 day"));
-
-      if ($arr[$newDay] == 1) {
-        $newArr[] = $newDay;
-      } else {
-        $newDay = date("Y-m-d", strtotime("$newDay + 1 day"));
-      }
-
-    }
-
-    return $newArr;
-  }
-
-  /**
-   * 根据时间获得时间段
-   * @param $projectId
-   * @param $date
-   * @return mixed
-   */
-  private function getTime($projectId, $date)
-  {
-    $url = $this->apiHost . "remote/preCallInfo/getInfoProjectTime.do?projectId=" . $projectId . "&date=" . $date;
-
-    $data = Curl::curlGet($url);
-
-    $arr = Curl::jsonToArray($data);
-
-    return $arr['items'];
-  }
-
-  function gettimeinfo()
-  {
-    $date = $this->input->post('date');
-    $projectid = $this->input->post('projectid');
-    $url = $this->api_host . "remote/preCallInfo/getInfoProjectTime.do?projectId=" . $projectid . "&date=" . $date;
-    $arr = $this->curl($url);
-    echo json_encode($arr['items']);
-  }
-
   /**
    * 评价
    */
@@ -385,7 +318,7 @@ class IndexController extends Controller
     $order_id = $_POST['id'];
     $revision = $_POST['advises'];
 
-    $url = $this->generateUrl("remote/review/save.do?callId=" . $order_id . "&revision=" . $revision);
+    $url = $this->generateUrl("remote/review/save?review=1&callId=" . $order_id . "&revision=" . $revision);
     $arr = Curl::curlGet($url);
 
     echo $arr;
