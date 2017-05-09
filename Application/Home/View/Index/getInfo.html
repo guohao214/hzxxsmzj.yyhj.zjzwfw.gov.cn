@@ -325,7 +325,7 @@
   </a>
 </div>
 
-<div class="sxxq_bottom_nr_zj" style="cursor:hand"><?php if($projectItems[0]['yuzt']==0){ ?><a
+<div class="sxxq_bottom_nr_zj" style="cursor:hand"><?php if($projectItems[0]['yuzt']==1){ ?><a
   class="sxxq_bottom_nr_zj_a"
   onClick="toPreCall()">立即预约</a><?php }else{?>
   <a class="sxxq_bottom_nr_zj_b">不可预约</a><?php } ?></div>
@@ -424,7 +424,7 @@
           var dePid = $("#depid").val();
           var authlevel = getUser['authlevel'];
 
-          if (authlevel < 0) {
+          if (authlevel < 2) {
             window.location.href = 'http://puser.zjzwfw.gov.cn/sso/mobile.do?action=realname&servicecode=[]&goto=[]'
           } else {
             window.location.href = '<{:U("index/order")}>?userId=' + userId
