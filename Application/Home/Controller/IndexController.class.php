@@ -301,7 +301,7 @@ class IndexController extends Controller
      */
     function pingjia()
     {
-      $data = [];
+      $data = array();
       $data['callId'] = $_GET['ids'];
       $data['review'] = $_GET['pingjia'];
       $data['businessReview'] = 1;
@@ -326,7 +326,7 @@ class IndexController extends Controller
      */
     function advise()
     {
-        $data = [];
+        $data = array();
         $data['callId'] = $_GET['id'];
         $data['review'] = 1;
         $data['businessReview'] = 1;
