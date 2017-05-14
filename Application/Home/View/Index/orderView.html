@@ -212,15 +212,15 @@ if(empty($list)){?>
 <div class="qfgj_nr">
     <div class="qfgj_nr_dh" onClick="toPreCall('<?php echo $v['projectId']; ?>')" style="cursor:hand"><a
             class="zt20_l"><?php echo $v['projectName']; ?></a></div>
-    <div class="cd">已预约时间：<?php echo $v['precallDay']." ".$v['otime']; ?></div>
+    <div class="cd">已预约时间：<?php echo $v['precallDay']." ".$v['beginTime'] . "-" . $v['endTime']; ?></div>
     <div class="ab">
         <ul>
             <li>
                 <a class="cancelOrder" href="<{:U('index/cancelOrder',array('id'=>$v['id'],'userId'=>$userId))}>"
                 <?php if($v['is_cancel']==1){?>
                 style="color:gray;"<?php } ?>>取消预约</a></li>
-            <li class="midline"><a onclick="advise('<?php echo $v['id']; ?>');">意见建议</a></li>
-            <li><a onclick="pingjia('<?php echo $v['id']; ?>')">评价</a></li>
+            <li class="midline"><a onclick="advise('<?php echo $v['id']; ?>', '<?php echo $v['centerId']; ?>');">意见建议</a></li>
+            <li><a onclick="pingjia('<?php echo $v['id']; ?>', '<?php echo $v['centerId']; ?>')">评价</a></li>
         </ul>
     </div>
 </div>
@@ -261,6 +261,9 @@ height: 100%; z-index: 99; background-color: rgba(0,0,0,0.5); left: 0; top: 0"><
 
 
 <script type="text/javascript">
+
+    var __centerId = '';
+
     /*默认字号调整*/
     function toPreCall(id) {
         document.getElementById('transeId').value = id;
@@ -270,16 +273,18 @@ height: 100%; z-index: 99; background-color: rgba(0,0,0,0.5); left: 0; top: 0"><
         document.getElementById('infoFrom').submit();
     }
 
-    function advise(id) {
+    function advise(id, centerId) {
         $('#bg').show();
         document.getElementById('a').value = id;
+        __centerId = centerId;
         document.getElementById('advise').setAttribute('action', '<{:U("index/advise")}>');
         $("#advisep").show();
         $("#pingjiap").hide();
     }
-    function pingjia(id) {
+    function pingjia(id, centerId) {
         $('#bg').show();
         document.getElementById('p').value = id;
+        __centerId = centerId;
         document.getElementById('pingjia').setAttribute('action', '<{:U("index/pingjia")}>');
         $("#pingjiap").show();
         $("#advisep").hide();
@@ -319,7 +324,7 @@ height: 100%; z-index: 99; background-color: rgba(0,0,0,0.5); left: 0; top: 0"><
             var $form = $(this).closest('form');
             $.ajax({
                 url:  $form.prop('action'),
-                data: $form.serialize(),
+                data: $form.serialize() + '&centerId=' + __centerId,
                 dataType: 'json',
                 method: 'post',
                 success: function (data) {
@@ -327,7 +332,9 @@ height: 100%; z-index: 99; background-color: rgba(0,0,0,0.5); left: 0; top: 0"><
                         alert(data.message || '请求失败，请重试！')
                     } else {
                         $form.find('textarea').val('');
-                        $form.closest('div').fadeOut()
+                        $form.closest('div').fadeOut();
+                        $('#bg').trigger('click');
+                        alert(data.message || '发布成功！')
                     }
                 },
                 error: function () {
