@@ -26,5 +26,5 @@ return array(
 
     'DEFAULT_MODULE' => 'Home',// 配置你原来的默认分组
 
-    'URL_MODEL' => 2, //重写隐藏index.php
+    'URL_MODEL' => 1, //重写隐藏index.php
 );

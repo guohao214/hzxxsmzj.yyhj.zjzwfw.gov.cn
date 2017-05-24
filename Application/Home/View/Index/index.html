@@ -151,7 +151,7 @@
                     window.location.reload();
                 }
             })
-            $.get(host + '/getTypeList', {id: $id}, function (data) {
+            $.get('<{:U("index/getTypeList")}>', {id: $id}, function (data) {
                 if (!$.trim(data)) {
                     window.location.reload();
                     return;
@@ -159,7 +159,7 @@
 
                 $loadEffect.hide();
                 $container.html(data);
-                window.location.href = '#' + $id
+                window.location.href = '<{:U("index/index")}>' + '#' + $id
             })
 
         })
