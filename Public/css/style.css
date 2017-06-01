@@ -68,3 +68,11 @@ li{list-style:none;}.my span a{color:#fff;}
     position: absolute;
     right: -2px;
 }
+
+#footer {
+    color: white !important;
+    margin: 0 !important;
+    line-height: 35px !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    font-size: 15px !important;
+}
